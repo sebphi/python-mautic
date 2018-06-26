@@ -43,7 +43,7 @@ class Stats(API):
         limit=0,
         order_by='',
         order_by_dir='ASC',
-        published_only=False,
+        published=False,
         minimal=False
     ):
         return self.action_not_supported('get_list')

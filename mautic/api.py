@@ -122,7 +122,7 @@ class API(object):
         limit=0,
         order_by='',
         order_by_dir='ASC',
-        published_only=False,
+        published=False,
         minimal=False
     ):
         """
@@ -133,7 +133,7 @@ class API(object):
         :param limit: int
         :param order_by: str
         :param order_by_dir: str
-        :param published_only: bool
+        :param published: bool
         :param minimal: bool
         :return: dict|str
         """
@@ -147,8 +147,8 @@ class API(object):
             parameters['orderBy'] = order_by
         if order_by_dir:
             parameters['orderByDir'] = order_by_dir
-        if published_only:
-            parameters['publishedOnly'] = 'true'
+        if published:
+            parameters['published'] = 'true'
         response = self._client.session.get(
             self.endpoint_url, params=parameters
         )
@@ -172,7 +172,7 @@ class API(object):
             limit=limit,
             order_by=order_by,
             order_by_dir=order_by_dir,
-            published_only=True
+            published=True
         )
 
     def create(self, parameters):
